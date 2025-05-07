@@ -1,5 +1,12 @@
 Changelog
 
+1.0.9
+	Thanks to github user @shult12 for these changes:
+		Missing text in the deployed science category when sorting by vessel type
+	Planets aren't culled in the tracking list when scrolled out of view (instead they're manually hidden with the camera code that I removed)
+	The tracking list is incorrectly positioned
+	Changing vessel type doesn't update the icon in the tracking list until a manual refresh
+
 1.0.8.2
 	Renamed the main DLL to allow CKAN to recognize if the mod was manually installed mod
 
