@@ -127,17 +127,6 @@ namespace BetterTracking
 
             if (_mode > 0 || _headerRect == null || Tracking_Controller.Instance == null)
                 return;
-
-            if (_headerRect.IsFullyVisibleFrom(Tracking_Controller.Instance.CanvasCamera, Tracking_Controller.Instance.TrackingScrollView))
-            {
-                if (!_headerImage.activeSelf)
-                    _headerImage.SetActive(true);
-            }
-            else
-            {
-                if (_headerImage.activeSelf)
-                    _headerImage.SetActive(false);
-            }
         }
     }
 }

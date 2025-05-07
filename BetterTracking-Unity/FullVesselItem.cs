@@ -169,6 +169,8 @@ namespace BetterTracking.Unity
 
             if (m_InfoText != null)
                 m_InfoText.OnTextUpdate.Invoke(_vesselInterface.VesselInfo);
+
+            _vesselInterface.OnIconUpdate();
         }
     }
 }

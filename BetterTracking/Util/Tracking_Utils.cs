@@ -274,6 +274,8 @@ namespace BetterTracking
                     return Localizer.Format("#autoLOC_900679");
                 case VesselType.Unknown:
                     return Localizer.Format("#autoLOC_6002223");
+                case VesselType.DeployedScienceController:
+                    return Localizer.Format("#autoLOC_318504");
             }
 
             return "";

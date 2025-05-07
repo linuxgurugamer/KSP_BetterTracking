@@ -79,6 +79,7 @@ namespace BetterTracking
             if (RDController != null)
             {
                 _RDPlanetPrefab = RDController.planetListItemPrefab;
+                _RDPlanetPrefab.planetRawImage.material = _RDPlanetPrefab.planetRawImage.defaultMaterial; //stops planet from rendering over UI
             }
         }
     }
