@@ -29,7 +29,6 @@ THE SOFTWARE.
 
 using System.Collections.Generic;
 using System.Linq;
-using static UnityEngine.UI.GridLayoutGroup;
 
 
 namespace BetterTracking
@@ -242,8 +241,11 @@ namespace BetterTracking
 
             _bodyOrderList = new List<int>();
 
-            
 
+            foreach (var b in FlightGlobals.Bodies)
+            {
+                print($"[BetterTracking] bodyName: {b.bodyName}   referenceBody: {b.referenceBody}");
+            }
             var allBodies = FlightGlobals.Bodies.Where(b => b.referenceBody == Planetarium.fetch.Sun && b.referenceBody != b);
             var orderedBodies = allBodies.OrderBy(b => b.orbit.semiMajorAxis).ToList();
 

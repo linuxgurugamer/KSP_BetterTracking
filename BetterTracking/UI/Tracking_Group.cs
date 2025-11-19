@@ -27,10 +27,10 @@ THE SOFTWARE.
 */
 #endregion
 
-using System.Collections.Generic;
 using BetterTracking.Unity.Interface;
 using KSP.UI;
 using KSP.UI.Screens;
+using System.Collections.Generic;
 
 namespace BetterTracking
 {
@@ -74,7 +74,8 @@ namespace BetterTracking
 
         private void AddHeader(int vessels, int subVessels)
         {
-            _header = new Tracking_Header(_title, vessels, subVessels, Tracking_Utils.GetHeaderObject(_body, _type, _mode, false), (int)_mode, ToggleOrbits);
+            _header = new Tracking_Header(_title, vessels, subVessels,
+                Tracking_Utils.GetHeaderObject(_body, _type, _mode, false), (int)_mode, ToggleOrbits);
         }
 
         private void AddSubGroups(List<Tracking_MoonGroup> subGroups)
@@ -145,7 +146,7 @@ namespace BetterTracking
 
         public void UpdatePosition(int order, int old)
         {
-            switch(_mode)
+            switch (_mode)
             {
                 case Tracking_Mode.CelestialBody:
                     int index = _body == null ? 100 : _body.flightGlobalsIndex;
@@ -180,8 +181,8 @@ namespace BetterTracking
             set
             {
                 _isOpen = value;
-                
-                switch(_mode)
+
+                switch (_mode)
                 {
                     case Tracking_Mode.CelestialBody:
                         Tracking_Persistence.SetBodyPersistence(_body.flightGlobalsIndex, _isOpen);

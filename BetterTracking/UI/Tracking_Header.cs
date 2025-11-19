@@ -120,7 +120,7 @@ namespace BetterTracking
             else if (_pushedForward)
             {
                 _pushedForward = false;
-                
+
                 _headerImage.transform.position = new Vector3(
                     _headerImage.transform.position.x, _headerImage.transform.position.y, _cachedZ);
             }

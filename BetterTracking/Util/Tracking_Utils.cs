@@ -27,15 +27,14 @@ THE SOFTWARE.
 */
 #endregion
 
+using KSP.Localization;
+using KSP.UI.Screens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
-using KSP.Localization;
-using KSP.UI.Screens;
-using TMPro;
 
 namespace BetterTracking
 {
@@ -82,11 +81,11 @@ namespace BetterTracking
 
             string bodyName = body.bodyName;
 
-            if (body == FlightGlobals.GetHomeBody())
-                bodyName = "Kerbin";
+            //if (body == FlightGlobals.GetHomeBody())
+            //    bodyName = "Kerbin";
 
             PSystemBody pBody = GetBody(bodyName, PSystemManager.Instance.systemPrefab.rootBody);
-            
+
             if (pBody == null)
                 return null;
 
@@ -95,25 +94,25 @@ namespace BetterTracking
             UnityEngine.Object.DestroyImmediate(obj.GetComponent<MaterialSetDirection>());
             UnityEngine.Object.DestroyImmediate(obj.GetComponent<SphereCollider>());
             UnityEngine.Object.DestroyImmediate(GameObject.Find(obj.name + "/Atmosphere"));
-            
+
             RDPlanetListItemContainer planet = GameObject.Instantiate(Tracking_RDWatch.RDPlanetPrefab);
             planet.Setup(body.bodyName, body.displayName, obj, false, 0, moon ? 0.8f : 1, 44, 0, null);
             planet.SetSelectionCallback(new RDPlanetListItemContainer.SelectionCallback(FakeCallback));
-            
+
             RectTransform pRect = planet.transform as RectTransform;
-            
+
             pRect.anchoredPosition = new Vector2(2, -2);
             pRect.sizeDelta = new Vector2(-4, -4);
-            
+
             RawImage raw = planet.planetRawImage;
             RectTransform rect = raw.transform as RectTransform;
-            
+
             rect.pivot = new Vector2(0, 1);
             rect.anchoredPosition = new Vector2(4, -2);
             rect.sizeDelta = new Vector2(0, -4);
-            
+
             UnityEngine.Object.DestroyImmediate(planet.label_planetName.gameObject);
-            
+
             if (!Tracking_Controller.Instance.LightAdded)
             {
                 Light light = Tracking_Controller.Instance.NewTrackingList.AddComponent<Light>();
@@ -151,7 +150,7 @@ namespace BetterTracking
 
             return null;
         }
-        
+
         public static string ConcatDictionary(Dictionary<int, bool> values)
         {
             int count = values.Count;
@@ -184,7 +183,7 @@ namespace BetterTracking
             {
                 sb.AppendFormat("{0},", list[i]);
             }
-            
+
             if (sb.Length > 1)
             {
                 if (sb[sb.Length - 1] == ',')

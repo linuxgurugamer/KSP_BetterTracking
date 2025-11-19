@@ -1,5 +1,8 @@
 Changelog
 
+1.0.9.1
+	Fixed bug causing an exception entering the tracking station when in an RSS game
+
 1.0.9
 	Thanks to github user @shult12 for these changes:
 		Missing text in the deployed science category when sorting by vessel type
