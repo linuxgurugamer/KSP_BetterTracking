@@ -9,7 +9,7 @@ rem    but not always
 
 set H=%KSPDIR%
 
-set H=R:\KSP\KSP_1.12.5-Tetrix-SpaceY
+rem set H=R:\KSP\KSP_1.12.5-Tetrix-SpaceY
 set GAMEDIR=TrackingStationEvolved
 set GAMEDATA="GameData"
 set VERSIONFILE=%GAMEDIR%.version
