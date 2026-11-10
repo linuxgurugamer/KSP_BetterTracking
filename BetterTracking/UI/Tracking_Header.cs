@@ -59,7 +59,14 @@ namespace BetterTracking
 
             _onToggleOrbits = toggle;
 
-            _headerRect = obj.transform as RectTransform;
+            if (obj?.transform is RectTransform rectTransform)
+            {
+                _headerRect = rectTransform;
+            }
+            else
+            {
+                Tracking_Utils.ErrorLog("obj.transform could not be casted as a RectTransform.");
+            }
         }
 
         public string HeaderName
