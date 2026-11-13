@@ -52,6 +52,13 @@ namespace BetterTracking
             Debug.Log(finalLog);
         }
 
+        public static void ErrorLog(string message, params object[] stringObjects)
+        {
+            message = string.Format(message, stringObjects);
+            string finalLog = string.Format("[Better_Tracking] {0}", message);
+            Debug.LogError(finalLog);
+        }
+
         public static GameObject GetHeaderObject(CelestialBody body, VesselType type, Tracking_Mode mode, bool moon)
         {
             switch (mode)
@@ -79,12 +86,7 @@ namespace BetterTracking
             if (body == null || body.scaledBody == null || Tracking_RDWatch.RDPlanetPrefab == null)
                 return null;
 
-            string bodyName = body.bodyName;
-
-            //if (body == FlightGlobals.GetHomeBody())
-            //    bodyName = "Kerbin";
-
-            PSystemBody pBody = GetBody(bodyName, PSystemManager.Instance.systemPrefab.rootBody);
+            PSystemBody pBody = GetBody(body?.bodyName, PSystemManager.Instance.systemPrefab.rootBody) ?? GetBody("Kerbin", PSystemManager.Instance.systemPrefab.rootBody);
 
             if (pBody == null)
                 return null;
