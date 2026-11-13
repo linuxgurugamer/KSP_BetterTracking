@@ -1,7 +1,10 @@
 Changelog
 
-1.0.9.2 (unreleased)
+1.0.9.2 
 	Removed debugging print statement showing all bodies and the referenceBody for each
+	Thanks for github user @Clayell for this:
+		Commit "2e67251" commented out the code to switch the bodyName to Kerbin if the body was the home body. I have brought this back as a fallback in case the body cannot be found, which might be the cause of the bug.
+		Improved logging messages a bit
 
 1.0.9.1
 	Fixed bug causing an exception entering the tracking station when in an RSS game
